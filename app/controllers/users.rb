@@ -1,6 +1,5 @@
 namespace '/users' do
   get '/create' do
-
     erb :'/users/create_user'
   end
 
@@ -8,12 +7,10 @@ namespace '/users' do
   post '/create_user' do
     @user = User.create(name: params[:name], username: params[:username], email:params[:email], password: params[:password])
     @user.albums.create(name: 'default album')
-
     erb :'/users/create_user_success'
   end
 
   get '/sign_up' do
-
     erb :'/users/sign_up'
   end
 
@@ -23,7 +20,6 @@ namespace '/users' do
 
 
   post '/login' do
-
     @user = User.authenticate(params[:email], params[:password])
      if @user
        session[:id] = @user[:id]
@@ -31,7 +27,6 @@ namespace '/users' do
      else
        erb :'/users/invalid'
      end
-
   end
 
   get '/logout' do
@@ -42,9 +37,6 @@ namespace '/users' do
   get '/:id' do
     @user = User.find params[:id]
     @albums =@user.albums
-
-
     erb :"/users/particular_user"
   end
-
 end
