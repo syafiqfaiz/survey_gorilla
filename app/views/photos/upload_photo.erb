@@ -1,0 +1,24 @@
+<form action="/photos/create" method="post" enctype="multipart/form-data" class="form-horizontal" align='center'>
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Choose an album</label>
+    <div class="controls">
+      <select name="album_id">
+        <% @albums.each do |a| %>
+          <option value=<%= a.id %>><%= a.name %></option>
+        <% end %>
+      </select>
+      <a href="/albums/create_album">or create new album.</a>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Choose a photo</label>
+    <div class="controls">
+      <input type="file" name="file_path">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit">Upload</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,10 @@
+<div align="center">
+  Name : <%=@user.name%><br>
+  Username : <%=@user.username%><br>
+  Email : <%=@user.email%><br>
+  Albums : <%@albums.each do |album| %>
+    <a href="/albums/<%=album.id%>"><%=album.name%></a><br>
+  <%end%>
+</div>
+
+
